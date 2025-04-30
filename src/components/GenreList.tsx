@@ -3,11 +3,11 @@ import getCorppedImageUrl from "@/services/imageUrl";
 import { Button, HStack, Image, List, Spinner, Text } from "@chakra-ui/react";
 
 interface Props {
-	onGenreSelect: (genre: Genre) => void;
+	onSelectGenre: (genre: Genre) => void;
 	selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onGenreSelect, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
 	const { data, isLoading, error } = useGenres();
 
 	if (error) return null;
@@ -22,7 +22,7 @@ const GenreList = ({ onGenreSelect, selectedGenre }: Props) => {
 						variant={genre.id === selectedGenre?.id ? "solid" : "ghost"}
 						width="100%"
 						justifyContent="left"
-						onClick={() => onGenreSelect(genre)}
+						onClick={() => onSelectGenre(genre)}
 					>
 						<HStack>
 							<Image
