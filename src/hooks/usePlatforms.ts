@@ -1,4 +1,7 @@
 import platforms from "@/data/platforms";
+import apiClient from "@/services/apiClient";
+import { useQuery } from "@tanstack/react-query";
+import { FetchResponse } from "./useData";
 
 export interface Platform {
 	id: number;
@@ -6,6 +9,15 @@ export interface Platform {
 	slug: string;
 }
 
-const useGames = () => ({ data: platforms, isLoading: false, error: null });
+const useGames = () =>
+	useQuery({
+		queryKey: ["platforms"],
+		queryFn: () =>
+			apiClient
+				.get<FetchResponse<Platform>>("/platforms")
+				.then((res) => res.data),
+		staleTime: 24 * 60 * 60 * 1000, //24hr
+		initialData: { count: platforms.length, results: platforms },
+	});
 
 export default useGames;
