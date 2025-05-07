@@ -6,7 +6,7 @@ export interface SortOrder {
 }
 
 interface Props {
-	selectedSortOrder: string;
+	selectedSortOrder?: string;
 	onSelectSortOrder: (order: SortOrder) => void;
 }
 

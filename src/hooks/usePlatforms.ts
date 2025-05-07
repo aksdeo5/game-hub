@@ -8,9 +8,9 @@ export interface Platform {
 	slug: string;
 }
 
-const apiClient = new APIClient<Platform>("/genres");
+const apiClient = new APIClient<Platform>("/platforms/lists/parents");
 
-const useGames = () =>
+const usePlatforms = () =>
 	useQuery({
 		queryKey: ["platforms"],
 		queryFn: () => apiClient.getAll(),
@@ -18,4 +18,4 @@ const useGames = () =>
 		initialData: { count: platforms.length, results: platforms },
 	});
 
-export default useGames;
+export default usePlatforms;

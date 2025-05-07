@@ -4,7 +4,7 @@ import { Button, Menu, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
 interface Props {
-	selectedPlatform: Platform | null;
+	selectedPlatform?: Platform;
 	onSelectPlatform: (platform: Platform) => void;
 }
 

@@ -14,7 +14,7 @@ export interface Game {
 
 const apiClient = new APIClient<Game>("/games");
 
-const useGame = (gameQuery: GameQuery) =>
+const useGames = (gameQuery: GameQuery) =>
 	useInfiniteQuery({
 		queryKey: ["/games", gameQuery],
 		queryFn: ({ pageParam }) =>
@@ -33,4 +33,4 @@ const useGame = (gameQuery: GameQuery) =>
 		staleTime: 24 * 60 * 60 * 1000, //24hr
 	});
 
-export default useGame;
+export default useGames;

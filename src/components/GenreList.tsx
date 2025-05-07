@@ -12,7 +12,7 @@ import {
 
 interface Props {
 	onSelectGenre: (genre: Genre) => void;
-	selectedGenre: Genre | null;
+	selectedGenre?: Genre;
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {

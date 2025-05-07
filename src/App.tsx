@@ -10,10 +10,10 @@ import { Genre } from "./hooks/useGenres";
 import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
-	genre: Genre | null;
-	platform: Platform | null;
-	order: SortOrder | null;
-	search: string;
+	genre?: Genre;
+	platform?: Platform;
+	order?: SortOrder;
+	search?: string;
 }
 
 function App() {
@@ -54,7 +54,7 @@ function App() {
 							}
 						/>
 						<SortSelector
-							selectedSortOrder={gameQuery.order?.value || ""}
+							selectedSortOrder={gameQuery.order?.value}
 							onSelectSortOrder={(order) =>
 								setGameQuery({ ...gameQuery, order })
 							}
