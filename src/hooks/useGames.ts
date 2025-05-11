@@ -18,18 +18,18 @@ const apiClient = new APIClient<Game>("/games");
 const useGames = (gameQuery: GameQuery) => {
 	const genreId = gameQuery.genre?.id;
 	const platformId = gameQuery.platform?.id;
-	const orderValue = gameQuery.order?.value;
+	const orderParam = gameQuery.order;
 	const search = gameQuery.search;
 
 	return useInfiniteQuery({
 		queryKey:
-			genreId || platformId || orderValue || search
+			genreId || platformId || orderParam || search
 				? [
 						"games",
 						{
 							genre: genreId,
 							platform: platformId,
-							order: orderValue,
+							order: orderParam,
 							search: search,
 						},
 				  ]
@@ -39,7 +39,7 @@ const useGames = (gameQuery: GameQuery) => {
 				params: {
 					genres: genreId,
 					parent_platforms: platformId,
-					ordering: orderValue,
+					ordering: orderParam,
 					search: search,
 					page: pageParam,
 				},

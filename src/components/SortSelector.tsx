@@ -1,13 +1,8 @@
 import { Menu, Button, Portal } from "@chakra-ui/react";
 
-export interface SortOrder {
-	value: string;
-	label: string;
-}
-
 interface Props {
 	selectedSortOrder?: string;
-	onSelectSortOrder: (order: SortOrder) => void;
+	onSelectSortOrder: (orderParam: string) => void;
 }
 
 const SortSelector = ({ selectedSortOrder, onSelectSortOrder }: Props) => {
@@ -38,7 +33,7 @@ const SortSelector = ({ selectedSortOrder, onSelectSortOrder }: Props) => {
 							<Menu.Item
 								key={order.value}
 								value={order.value}
-								onClick={() => onSelectSortOrder(order)}
+								onClick={() => onSelectSortOrder(order.value)}
 							>
 								{order.label}
 							</Menu.Item>
