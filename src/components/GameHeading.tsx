@@ -1,11 +1,11 @@
+import useActiveParamsStore from "@/stores/activeParamsStore";
 import { Heading } from "@chakra-ui/react";
 
-interface Props {
-	selectedPlatformName?: string;
-	selectedGenreName?: string;
-}
+const GameHeading = () => {
+	const { selectedGenreName, selectedPlatformName } = useActiveParamsStore(
+		(s) => s.activeParams
+	);
 
-const GameHeading = ({ selectedPlatformName, selectedGenreName }: Props) => {
 	const heading = `${selectedPlatformName || ""} ${
 		selectedGenreName || ""
 	} Games`;

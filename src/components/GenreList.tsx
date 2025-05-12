@@ -1,5 +1,7 @@
-import useGenres, { Genre } from "@/hooks/useGenres";
+import useGenres from "@/hooks/useGenres";
 import getCorppedImageUrl from "@/services/imageUrl";
+import useActiveParamsStore from "@/stores/activeParamsStore";
+import useGameQueryStore from "@/stores/gameQueryStore";
 import {
 	Button,
 	Heading,
@@ -10,12 +12,13 @@ import {
 	Text,
 } from "@chakra-ui/react";
 
-interface Props {
-	onSelectGenre: (genre: Genre) => void;
-	selectedGenreId?: number;
-}
+const GenreList = () => {
+	const setGenre = useGameQueryStore((s) => s.setGenre);
+	const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genres);
+	const setSelectedGenreName = useActiveParamsStore(
+		(s) => s.setSelectedGenreName
+	);
 
-const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
 	const { data, isLoading, error } = useGenres();
 
 	if (error) return null;
@@ -35,7 +38,10 @@ const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
 							width="100%"
 							paddingX="unset"
 							justifyContent="left"
-							onClick={() => onSelectGenre(genre)}
+							onClick={() => {
+								setGenre(genre.id);
+								setSelectedGenreName(genre.name);
+							}}
 						>
 							<HStack>
 								<Image

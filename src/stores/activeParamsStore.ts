@@ -7,17 +7,17 @@ export interface ActiveParams {
 }
 interface ActiveParamsStore {
 	activeParams: ActiveParams;
-	setSelectedGenreName: (selectedGenreName: string) => void;
-	setSelectedPlatformName: (selectedPlatformName: string) => void;
+	setSelectedGenreName: (selectedGenreName?: string) => void;
+	setSelectedPlatformName: (selectedPlatformName?: string) => void;
 }
 
 const useActiveParamsStore = create<ActiveParamsStore>((set) => ({
 	activeParams: {},
-	setSelectedGenreName: (selectedGenreName: string) =>
+	setSelectedGenreName: (selectedGenreName?: string) =>
 		set((store) => ({
 			activeParams: { ...store.activeParams, selectedGenreName },
 		})),
-	setSelectedPlatformName: (selectedPlatformName: string) =>
+	setSelectedPlatformName: (selectedPlatformName?: string) =>
 		set((store) => ({
 			activeParams: { ...store.activeParams, selectedPlatformName },
 		})),
