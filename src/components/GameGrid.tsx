@@ -1,4 +1,4 @@
-import { GameQuery } from "@/App";
+import { GameQuery } from "@/stores/gameQueryStore";
 import useGames from "@/hooks/useGames";
 import { SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import React from "react";

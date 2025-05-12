@@ -6,18 +6,8 @@ import GenreList from "./components/GenreList";
 import NavBar from "./components/NavBar";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
-
-interface ActiveParams {
-	selectedPlatformName?: string;
-	selectedGenreName?: string;
-}
-
-export interface GameQuery {
-	genres?: number;
-	parent_platforms?: number;
-	ordering?: string;
-	search?: string;
-}
+import { ActiveParams } from "./stores/activeParamsStore";
+import { GameQuery } from "./stores/gameQueryStore";
 
 function App() {
 	const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
