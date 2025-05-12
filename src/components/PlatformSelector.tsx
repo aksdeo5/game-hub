@@ -4,11 +4,14 @@ import { Button, Menu, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
 interface Props {
-	selectedPlatform?: Platform;
+	selectedPlatformName?: string;
 	onSelectPlatform: (platform: Platform) => void;
 }
 
-const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
+const PlatformSelector = ({
+	selectedPlatformName,
+	onSelectPlatform,
+}: Props) => {
 	const { data, error } = usePlatforms();
 
 	if (error) return null;
@@ -17,7 +20,7 @@ const PlatformSelector = ({ selectedPlatform, onSelectPlatform }: Props) => {
 		<Menu.Root>
 			<Menu.Trigger asChild>
 				<Button variant="outline" size="sm">
-					{selectedPlatform?.name || "Platform"} <BsChevronDown />
+					{selectedPlatformName || "Platform"} <BsChevronDown />
 				</Button>
 			</Menu.Trigger>
 			<Portal>

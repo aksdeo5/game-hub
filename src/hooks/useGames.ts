@@ -16,31 +16,18 @@ export interface Game {
 const apiClient = new APIClient<Game>("/games");
 
 const useGames = (gameQuery: GameQuery) => {
-	const genreId = gameQuery.genre?.id;
-	const platformId = gameQuery.platform?.id;
-	const orderParam = gameQuery.order;
-	const search = gameQuery.search;
-
 	return useInfiniteQuery({
 		queryKey:
-			genreId || platformId || orderParam || search
-				? [
-						"games",
-						{
-							genre: genreId,
-							platform: platformId,
-							order: orderParam,
-							search: search,
-						},
-				  ]
+			gameQuery.genres ||
+			gameQuery.parent_platforms ||
+			gameQuery.ordering ||
+			gameQuery.search
+				? ["games", gameQuery]
 				: ["games"],
 		queryFn: ({ pageParam }) =>
 			apiClient.getAll({
 				params: {
-					genres: genreId,
-					parent_platforms: platformId,
-					ordering: orderParam,
-					search: search,
+					...gameQuery,
 					page: pageParam,
 				},
 			}),

@@ -12,10 +12,10 @@ import {
 
 interface Props {
 	onSelectGenre: (genre: Genre) => void;
-	selectedGenre?: Genre;
+	selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
 	const { data, isLoading, error } = useGenres();
 
 	if (error) return null;
@@ -31,7 +31,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
 				{data?.results.map((genre) => (
 					<List.Item key={genre.id} paddingY="5px">
 						<Button
-							variant={genre.id === selectedGenre?.id ? "solid" : "ghost"}
+							variant={genre.id === selectedGenreId ? "solid" : "ghost"}
 							width="100%"
 							paddingX="unset"
 							justifyContent="left"
