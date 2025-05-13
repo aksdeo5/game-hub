@@ -18,11 +18,10 @@ const SearchInput = () => {
 		<form
 			onSubmit={(event) => {
 				event.preventDefault();
-				if (ref.current) {
-					setSearch(ref.current.value);
-					setSelectedGenreName(undefined);
-					setSelectedPlatformName(undefined);
-				}
+				const serachText = ref.current?.value.trim() || undefined;
+				setSearch(serachText);
+				setSelectedGenreName(undefined);
+				setSelectedPlatformName(undefined);
 			}}
 		>
 			<InputGroup startElement={<BsSearch />}>
