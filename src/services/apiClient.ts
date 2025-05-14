@@ -26,9 +26,9 @@ export default class APIClient<T> {
 			.then((res) => res.data);
 	}
 
-	post(data: T) {
+	get(id: string) {
 		return axiosInstance
-			.post<FetchResponse<T>>(this.endpoint, data)
+			.get<T>(`${this.endpoint}/${id}`)
 			.then((res) => res.data);
 	}
 }
