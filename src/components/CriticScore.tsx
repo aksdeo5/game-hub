@@ -13,7 +13,7 @@ const CriticScore = ({ score }: Props) => {
 			fontSize="14px"
 			colorPalette={color}
 		>
-			{score}
+			{score || "N/A"}
 		</Badge>
 	);
 };
