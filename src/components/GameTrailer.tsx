@@ -18,7 +18,6 @@ const GameTrailer = ({ gameId }: Props) => {
 
 	const trailerUrl = first.data["480"];
 	const previewUrl = first.preview;
-	const title = first.name;
 
 	return (
 		<Box
@@ -31,9 +30,14 @@ const GameTrailer = ({ gameId }: Props) => {
 			shadow="md"
 		>
 			<Text fontSize="xl" mb={4} fontWeight="semibold">
-				{title}
+				Trailer
 			</Text>
-			<video src={trailerUrl} poster={previewUrl} controls />
+			<video
+				src={trailerUrl}
+				poster={previewUrl}
+				controls
+				style={{ margin: "auto" }}
+			/>
 		</Box>
 	);
 };
