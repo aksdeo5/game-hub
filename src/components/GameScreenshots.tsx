@@ -18,14 +18,15 @@ const GameScreenshots = ({ gameId }: Props) => {
 
 	return (
 		<Box maxW="960px" mx="auto" my={10}>
-			<Text fontSize="2xl" fontWeight="bold" mb={6}>
+			<Text fontSize="2xl" fontWeight="bold" mb={{ base: 2, md: 5 }}>
 				Screenshots
 			</Text>
 
-			<SimpleGrid columns={{ base: 1, md: 2 }} gap={4}>
+			<SimpleGrid columns={{ base: 1, md: 2 }} gap={{ md: 2, lg: 4 }}>
 				{screenshots?.map((screenshot) => (
 					<Box
 						key={screenshot.id}
+						marginY={{ base: 1, md: 0 }}
 						overflow="hidden"
 						borderRadius="md"
 						borderWidth="1px"

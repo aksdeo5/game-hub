@@ -24,8 +24,8 @@ const GameTrailer = ({ gameId }: Props) => {
 		<Box
 			maxW="720px"
 			mx="auto"
-			mt={10}
-			p={4}
+			mt={{ base: 5, md: 0 }}
+			p={2}
 			borderWidth="1px"
 			borderRadius="lg"
 			shadow="md"
