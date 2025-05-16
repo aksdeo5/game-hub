@@ -1,20 +1,36 @@
+import Game from "@/entities/Game";
 import getCorppedImageUrl from "@/services/imageUrl";
 import { Card, HStack, Image } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CriticScore from "./CriticScore";
 import Emoji from "./Emoji";
 import GameCardContainer from "./GameCardContainer";
 import PlatformIconsList from "./PlatformIconsList";
-import Game from "@/entities/Game";
 
 interface Props {
 	game: Game;
 }
 
 const GameCard = ({ game }: Props) => {
+	const navigate = useNavigate();
+
+	const handleClick = () => {
+		navigate(`/games/${game.slug}`);
+	};
+
 	return (
 		<GameCardContainer>
-			<Card.Root>
+			<Card.Root
+				onClick={() => handleClick()}
+				onKeyDown={(e) => {
+					if (e.key === "Enter" || e.key === " ") {
+						handleClick();
+					}
+				}}
+				role="link"
+				tabIndex={0}
+				cursor="pointer"
+			>
 				<Image src={getCorppedImageUrl(game.background_image)} alt="" />
 				<Card.Body gap="2">
 					<HStack justifyContent="space-between" marginBlockStart={3}>
@@ -23,9 +39,7 @@ const GameCard = ({ game }: Props) => {
 						/>
 						<CriticScore score={game.metacritic} />
 					</HStack>
-					<Link to={`/games/${game.slug}`}>
-						<Card.Title>{game.name}</Card.Title>
-					</Link>
+					<Card.Title>{game.name}</Card.Title>
 					<Emoji rating={game.rating_top} />
 				</Card.Body>
 			</Card.Root>
