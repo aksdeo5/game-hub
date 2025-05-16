@@ -1,4 +1,4 @@
-import { Screenshot } from "@/entities/Screenshot";
+import Screenshot from "@/entities/Screenshot";
 import APIClient from "@/services/apiClient";
 import { useQuery } from "@tanstack/react-query";
 import ms from "ms";

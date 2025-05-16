@@ -5,7 +5,7 @@ import CriticScore from "./CriticScore";
 import Emoji from "./Emoji";
 import GameCardContainer from "./GameCardContainer";
 import PlatformIconsList from "./PlatformIconsList";
-import { Game } from "@/entities/Game";
+import Game from "@/entities/Game";
 
 interface Props {
 	game: Game;
