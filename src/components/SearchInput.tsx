@@ -22,6 +22,7 @@ const SearchInput = () => {
 			onSubmit={(event) => {
 				event.preventDefault();
 				const serachText = ref.current?.value.trim() || undefined;
+				if (ref.current) ref.current.value = "";
 				setSearch(serachText);
 				setSelectedGenreName(undefined);
 				setSelectedPlatformName(undefined);

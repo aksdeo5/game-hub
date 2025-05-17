@@ -3,9 +3,12 @@ import GameHeading from "@/components/GameHeading";
 import GenreList from "@/components/GenreList";
 import PlatformSelector from "@/components/PlatformSelector";
 import SortSelector from "@/components/SortSelector";
-import { Box, Grid, GridItem, HStack } from "@chakra-ui/react";
+import useGameQueryStore from "@/stores/gameQueryStore";
+import { Box, Grid, GridItem, HStack, Text } from "@chakra-ui/react";
 
 const HomePage = () => {
+	const search = useGameQueryStore((s) => s.gameQuery.search);
+
 	return (
 		<Grid
 			templateAreas={{
@@ -23,10 +26,15 @@ const HomePage = () => {
 			<GridItem area="main">
 				<Box paddingLeft={2}>
 					<GameHeading />
-					<HStack gap={5} marginBottom={5}>
+					<HStack gap={5} marginBottom={3}>
 						<PlatformSelector />
 						<SortSelector />
 					</HStack>
+					{search && (
+						<Text fontSize="lg" fontWeight="medium" color="gray.500">
+							Search: &quot;{search}&quot;
+						</Text>
+					)}
 				</Box>
 				<GameGrid />
 			</GridItem>
