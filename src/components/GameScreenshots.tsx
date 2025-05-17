@@ -1,5 +1,5 @@
 import useScreenshots from "@/hooks/useScreenshots";
-import { Box, SimpleGrid, Text, Image, Spinner } from "@chakra-ui/react";
+import { Box, Image, SimpleGrid, Skeleton, Text } from "@chakra-ui/react";
 
 interface Props {
 	gameId: number;
@@ -8,7 +8,7 @@ interface Props {
 const GameScreenshots = ({ gameId }: Props) => {
 	const { data, isLoading, error } = useScreenshots(gameId);
 
-	if (isLoading) return <Spinner />;
+	if (isLoading) return <Skeleton height="400px" borderRadius="lg" />;
 
 	if (error) throw error;
 

@@ -1,5 +1,5 @@
 import useTrailers from "@/hooks/useTrailers";
-import { Box, Spinner, Text } from "@chakra-ui/react";
+import { Box, Skeleton, Text } from "@chakra-ui/react";
 
 interface Props {
 	gameId: number;
@@ -8,7 +8,7 @@ interface Props {
 const GameTrailer = ({ gameId }: Props) => {
 	const { data, isLoading, error } = useTrailers(gameId);
 
-	if (isLoading) return <Spinner />;
+	if (isLoading) return <Skeleton height="400px" borderRadius="lg" />;
 
 	if (error) throw error;
 
