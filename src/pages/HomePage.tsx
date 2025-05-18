@@ -34,6 +34,7 @@ const HomePage = () => {
 						<Text
 							fontSize={{ base: "sm", md: "md", lg: "lg" }}
 							fontWeight="medium"
+							marginBottom={2}
 							color="gray.500"
 						>
 							Search: &quot;{search}&quot;
