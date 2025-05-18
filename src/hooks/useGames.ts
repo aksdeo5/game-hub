@@ -15,12 +15,13 @@ const useGames = () => {
 			gameQuery.parent_platforms ||
 			gameQuery.ordering ||
 			gameQuery.search
-				? ["games", gameQuery]
+				? ["games", { ...gameQuery, search: gameQuery.search?.toLowerCase() }]
 				: ["games"],
 		queryFn: ({ pageParam }) =>
 			apiClient.getAll({
 				params: {
 					...gameQuery,
+					search: gameQuery.search?.toLowerCase(),
 					page: pageParam,
 				},
 			}),
