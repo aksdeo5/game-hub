@@ -26,12 +26,16 @@ const HomePage = () => {
 			<GridItem area="main">
 				<Box paddingLeft={2}>
 					<GameHeading />
-					<HStack gap={5} marginBottom={3}>
+					<HStack gap={{ base: 2, md: 3, lg: 5 }} marginBottom={3}>
 						<PlatformSelector />
 						<SortSelector />
 					</HStack>
 					{search && (
-						<Text fontSize="lg" fontWeight="medium" color="gray.500">
+						<Text
+							fontSize={{ base: "sm", md: "md", lg: "lg" }}
+							fontWeight="medium"
+							color="gray.500"
+						>
 							Search: &quot;{search}&quot;
 						</Text>
 					)}

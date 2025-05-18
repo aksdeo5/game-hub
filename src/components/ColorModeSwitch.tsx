@@ -7,10 +7,14 @@ const ColorModeSwitch = () => {
 
 	return (
 		<HStack>
-			<Text whiteSpace="nowrap">
+			<Text whiteSpace="nowrap" fontSize={{ base: "sm", md: "md", lg: "lg" }}>
 				{colorMode === "light" ? "Light Mode" : "Dark Mode"}
 			</Text>
-			<IconButton onClick={toggleColorMode} variant="outline" size="sm">
+			<IconButton
+				onClick={toggleColorMode}
+				variant="outline"
+				size={{ base: "sm", md: "md", lg: "lg" }}
+			>
 				{colorMode === "light" ? <LuSun /> : <LuMoon />}
 			</IconButton>
 		</HStack>

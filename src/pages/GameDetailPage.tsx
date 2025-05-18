@@ -21,7 +21,12 @@ const GameDetailPage = () => {
 			<GridItem>
 				<Stack gap={5}>
 					<Box>
-						<Heading>{game.name}</Heading>
+						<Heading
+							size={{ base: "xl", md: "2xl", lg: "3xl" }}
+							marginBottom={{ base: 1, md: 2, lg: 3 }}
+						>
+							{game.name}
+						</Heading>
 						<ExpandableText>{game.description_raw}</ExpandableText>
 					</Box>
 					<GameAttributes game={game} />

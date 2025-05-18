@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
 	return (
-		<HStack padding="10px">
+		<HStack padding={{ base: 1, md: 2 }}>
 			<Link to="/">
-				<Image src={logo} boxSize="60px" />
+				<Image src={logo} maxWidth={{ base: "40px", md: "60px" }} />
 			</Link>
 			<SearchInput />
 			<ColorModeSwitch />

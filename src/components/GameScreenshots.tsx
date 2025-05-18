@@ -1,5 +1,5 @@
 import useScreenshots from "@/hooks/useScreenshots";
-import { Box, Image, SimpleGrid, Skeleton, Text } from "@chakra-ui/react";
+import { Box, Heading, Image, SimpleGrid, Skeleton } from "@chakra-ui/react";
 
 interface Props {
 	gameId: number;
@@ -17,10 +17,13 @@ const GameScreenshots = ({ gameId }: Props) => {
 	if (!screenshots || screenshots.length === 0) return null;
 
 	return (
-		<Box maxW="960px" mx="auto" my={10}>
-			<Text fontSize="2xl" fontWeight="bold" mb={{ base: 2, md: 5 }}>
+		<Box maxW="960px">
+			<Heading
+				size={{ base: "xl", md: "2xl", lg: "3xl" }}
+				mb={{ base: 2, md: 5 }}
+			>
 				Screenshots
-			</Text>
+			</Heading>
 
 			<SimpleGrid columns={{ base: 1, md: 2 }} gap={{ md: 2, lg: 4 }}>
 				{screenshots?.map((screenshot) => (

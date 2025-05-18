@@ -19,7 +19,7 @@ const ExpandableText = ({ children }: Props) => {
 		: children.substring(0, limit).trim() + "...";
 
 	return (
-		<Text>
+		<Text textAlign="justify" fontSize={{ base: "sm", md: "md", lg: "lg" }}>
 			{innerText}
 			<Button
 				marginLeft={1}
